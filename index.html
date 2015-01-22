@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products">
+  <meta name="author" content="Clemens Link">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/DevelopingDataProducts.jpg">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products</h1>
+    <h2>Course Project</h2>
+    <p>Clemens Link<br/>January 2015</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Background, Purpose &amp; How To Run</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Background</h3>
+
+<p>This application was developed as course project for the Coursera class &quot;Developing Data Products&quot; from ... It is my first shiny app and so the functionality is small but in my opinion nice and adequate to learn the basic idea behind shiny.</p>
+
+<h3>Purpose</h3>
+
+<p>The main purpose of this application is to get familiar with the concepts of shiny. So the <strong>user</strong> has very limited possibility to interact with the app while the <strong>developer</strong> has learned a lot building it :-)</p>
+
+<h3>How To Run</h3>
+
+<p>Placing <strong>ui.R</strong> and <strong>server.R</strong> in one directory, you can run the application in <strong>RStudio</strong> via the <strong>runApp()</strong> command.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How To Use</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The user of this application can make some choices in the <strong>sidebar panel</strong> on the left to influence the structure and layout of a histogram chart in the <strong>main panel</strong>.</p>
+
+<p>This histogram is based on a random set of 10000 values in Gauss distribution (rnorm). It is randomly generated when the user launches the app and shows the characteristical bell curve.</p>
+
+<p>The following three main factors can be influenced through user input in the <strong>sidebar panel</strong>:</p>
+
+<ol>
+<li>Headlines of the histogram: here the user can choose between title, sub title, author and date. These headlines are independantly shown on top of the histogram.</li>
+<li>Number of breaks in the histogram: to keep it simple, the application offers a slider to choose between four standard values: 10, 50, 90, or 130 breaks.</li>
+<li>The threshold to color the tails of the bell curve: while the histogram is colored blue, the user can influence the size of the tails colored in red.</li>
+</ol>
+
+<p>In addition to the adaption of the plot, the application also shows the numerical input values for breaks and thresholds in the <strong>main panel</strong> below the histogram.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Algorithm</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- rnorm(10000); breaks &lt;- 90; threshold &lt;- 1.6
+hx &lt;- hist(x, breaks, plot=FALSE); plot(hx, col=ifelse(abs(hx$breaks) &lt; threshold, 4, 2))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>What Do You Think?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz quiz-single well ">
+  <p>After reading through my first slidify deck on my first shiny app, I&#39;m curious to see, if you can imaging, what I think about all these. So please answer the following question:</p>
+
+<p>How do I like my first shiny app?</p>
+
+<ol>
+<li><em>the best shiny app and slidify deck I&#39;ve ever done</em></li>
+<li>okay, but nothing special</li>
+<li>don&#39;t like it at all</li>
+</ol>
+
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn btn-info">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear btn btn-danger">Clear</button>
+  
+  <div class="quiz-hint">
+  <p>Come on, it&#39;s not as difficult as you might think.</p>
+
+</div>
+<div class="quiz-explanation">
+  <p>As it&#39;s my first experience, it also must be my best :)</p>
+
+</div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background, Purpose &amp; How To Run'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How To Use'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Algorithm'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='What Do You Think?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
